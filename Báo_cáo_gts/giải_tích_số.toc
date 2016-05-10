@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {1}L\IeC {\`\ohorn }i m\IeC {\h \ohorn } \IeC {\dj }\IeC {\`\acircumflex }u }{2}
+\contentsline {section}{\numberline {2}B\IeC {\`a}i to\IeC {\'a}n \IeC {\dj }\IeC {\d \abreve }t ra}{3}
+\contentsline {section}{\numberline {3}Ph\IeC {\uhorn }\IeC {\ohorn }ng ph\IeC {\'a}p l\IeC {\d \abreve }p Seidel}{5}
+\contentsline {section}{\numberline {4}Ph\IeC {\uhorn }\IeC {\ohorn }ng ph\IeC {\'a}p l\IeC {\d \abreve }p Gauss - Seidel}{10}
+\contentsline {section}{\numberline {5}Ch\IeC {\d a}y ch\IeC {\uhorn }\IeC {\ohorn }ng tr\IeC {\`\i }nh tr\IeC {\^e}n m\IeC {\'a}y}{12}
+\contentsline {section}{\numberline {6}Nh\IeC {\'o}m b\IeC {\'a}o c\IeC {\'a}o}{17}
+\contentsline {section}{\numberline {7}K\IeC {\'\ecircumflex }t lu\IeC {\d \acircumflex }n}{18}

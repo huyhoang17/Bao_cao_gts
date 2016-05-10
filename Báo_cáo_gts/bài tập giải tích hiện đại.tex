@@ -1,0 +1,381 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{vietnam}
+%\usepackage[utf8]{inputenc}
+%\usepackage[vietnam]{babel}    %tạo bảng trong tài liệu
+\usepackage{amsmath}
+%\usepackage{hyperref}     %tạo khung tròn từng đầu mục trong mục lục
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}      %thêm màu cho text	
+\usepackage{draftwatermark}     %chèn watermark
+\SetWatermarkText{Seidel / Gauss - Seidel}
+\SetWatermarkScale{0.6}  %% kích cỡ chữ muốn chèn
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage{fancyhdr}      %thêm header và footer
+\pagestyle{fancy}      %kiểu trang khi thêm header và footer, có 2 thanh đen, 1 thanh dưới header, 1 thanh trên footer (*)
+\usepackage{utopia}    %in đậm các câu đầu thư mục, câu lệnh chính.
+\lhead{\textbf{Bài tập giải tích hiện đại}}     %lệnh textbf: dùng để in đậm chữ
+\chead{}
+\rhead{\textbf{\textit{Viện Toán Ứng Dụng và Tin Học}}}    %lệnh textit: dùng để in nghiêng chữ
+\lfoot{\textbf{Phan Huy Hoàng - Toán Tin 2/K59}}
+\cfoot{}
+\rfoot{\textbf{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt} 
+
+\begin{document} %thiết lập lệnh bắt đầu cho tài liệu
+
+\pagenumbering{gobble}   %ko đánh số trang ở lời mở đầu
+
+\author{TS.Nguyễn Văn Toàn}    %tên tác giả
+\title{Bài tập giải tích hiện đại}    %tiêu đề tài liệu
+\date{\today{}}  %thiết lập ngày giờ là ngày hôm nay
+
+\maketitle{}   %tạo tiêu đề
+\begin{center}       %chèn hình: logo bách khoa
+    \begin{figure}[htp]
+    \begin{center}
+     \includegraphics[scale=.2]{logo}
+    \end{center}
+    %\caption{}
+    \label{}
+    \end{figure}
+\end{center}
+
+
+\newpage   %sang trang mới
+
+\pagenumbering{arabic}     %đánh số trang là số
+%muốn đánh số trang bằng số la mã, thay bằng "roman"
+
+\tableofcontents{}    %tạo mục lục
+
+\newpage
+%////////////////////////////////////////////////////////////////////////////////////
+\title{\textbf{CHƯƠNG 1}}\\
+\title{\textbf{KHÔNG GIAN METRIC}}
+
+\section{Không gian METRIC: }
+\hspace{0.7cm}- Giả sử X là tập khác rỗng. Một khoảng cách (metric) trong X là một ánh xạ d của X x X vào tập hợp     $\mathds{R}$ các số thực, thỏa mãn các điều kiện sau đây:
+\begin{itemize}    %tạo các lệnh chấm nhỏ hơn trong tài liệu
+\item{$d(x,y) = 0$ khi và chỉ khi $x = y$ ("tiên đề đồng nhất").  } %tạo từng dấu chấm nhỏ trong thư mục
+
+\item{$d(x,y) = d(y,x$) với mọi $x,y \in X$ ("tiên đề đối xứng").}
+
+\item{$d(x,y) \leqslant d(x,z) + d(z,y)$ với mọi $x,y,z \in X$ ("tiên đề tam giác").}
+
+\end{itemize} 
+
+- Tập hợp X cùng với một khoảng cách d đã cho trong X, được gọi là {\color{red} không gian Metric} và được kí hiệu là $(X,d)$. Đôi khi để đơn giản và nếu metric d được xác định rõ ràng, ta chỉ kí hiệu X.\\
+
+- Hàm $d(x,y)$ = $|x - y|$ là một khoảng cách trong tập hợp R các số thực, và được gọi là khoảng cách thông thường. Không gian metric tương ứng được gọi là {\color{red} đường thẳng thực}. Nếu R được coi là một không gian metric, và không nói rõ với khoảng cách nào, thì chúng ta luôn luôn hiểu rằng đó là khoảng cách thông thường.
+
+\section{Điểm tụ và điểm trong của một tập hợp.\\Tập đóng và tập mở:}
+\hspace{0.7cm}- Ta xét một không gian metric (X,d) nào đó. Ta sẽ gọi các phần tử của các không gian này là các điểm:
+\begin{itemize}
+\item {\textbf{GIỚI HẠN}: Giả sử $(x_n)_n$ là một dãy trong không gian metric X. Ta nói dãy $(x_n)_n$ hội tụ đến $x$ $\in$ X nếu khoảng cách giữa $x_n$ và $x$ dần đến 0 khi $n\longrightarrow \infty$. Lúc đó $x$ được gọi là {\color{red}giới hạn} của dãy $(x_n)_n$ và được kí hiệu:\\}
+\[ \lim_{ n \to \infty } \ x_n =  x   \\ \]
+
+\item{\textbf{LÂN CẬN}: Cho $a$ là một điểm của X. Ta gọi tập:\\}
+\[ B(a, r ) = \lbrace x \in X: d(a,x ) < r  & ( r >0 )  \\ \] 
+là {\color{red}hình cầu mở} tâm $a$ bán kính r, hay còn gọi là {\color{red}$r$ - lân cận của điểm $a$}.\\
+
+- Tập $ V\subsetX $ được gọi là một lân cận của điểm $a$ nếu V có chứa một $r$-lân cận nào đó của a, tức là tồn tại $r$>0 sao cho $ $B(a,r)$ \subset V $.\\
+\item{\textbf{ĐIỂM TỤ}: Giả sử E là một tập hợp con của X. Điểm $ a \in X $ được gọi là {\color{red}điểm tụ} của tập hợp E nếu trong lân cận bất kì của điểm a có chứa ít nhất một điểm thuộc E khác điểm a (ta có nhận xét: điểm tụ của tập hợp E không nhất thiết phải thuộc tập hợp này).\\
+
+- Để một điểm a là điểm tụ của tập hợp E, cần và đủ là trong lân cận bất kì của điểm a có vô số điểm thuộc tập hợp E.\\
+Để một điểm a là điểm tụ của tập hợp E, cần và đủ là tồn tại một dãy $(x_n)_n$ các phần tử của E với $x_n \neq x_m $ khi $n \neq m$, hội tụ đến a.\\
+
+- Tập hợp tất cả các điểm tụ của tập E, được gọi là {\color{red}tập dẫn xuất} của tập hợp E và kí hiệu là E'.}
+
+\item{\textbf{ĐIỂM CÔ LẬP}: Điểm $ a\in E$ được goi là {\color{red}điểm cô lập} của tập hợp E, nếu tồn tại một lân cận của điểm này, không chứa bất kì một điểm nào của tập hợp E (không kể điểm a).}
+
+\item{\textbf{ĐIỂM BIÊN}: Điểm $a\in X$ được gọi là {\color{red}điểm biên} của tập hợp E, nếu trong lân cận của điểm này có chứa những điểm thuộc E và những điểm không thuộc E.\\
+
+- Tập hợp của tất cả các điểm biên của tập hợp E được gọi là {\color{red}biên} của tập hợp này. Biên của tập E được kí hiệu là $FsA$.}
+
+\item{\textbf{ĐIỂM DÍNH}: Điểm $a\inX$ được gọi là một {\color{red}điểm dính} của tập hợp E, nếu trong lân cận bất kì của điểm này có ít nhất một điểm thuộc E.\\
+
+- Để một điểm a là điểm dính của tập hợp E, cần và đủ là tồn tại một dãy $(x_n)_n$ các phần tư của E hội tụ đến a.}
+
+\item{\textbf{BAO ĐÓNG CỦA MỘT TẬP HỢP}: tập hợp tất cả các điểm dính của tập hợp E được gọi là {\color{red}bao đóng} của tập hợp E ( và kí hiệu là \bar{E}).\\
+
+- Ta có nhận xét:
+\begin{align}
+\bar E = E \cup E'. \\
+\bar{ E_1 \cup E_2 } = \bar{E_1} \cup \bar{E_2}.
+\end{align}
+}
+
+\item{\textbf{TẬP ĐÓNG}: Nếu tập hợp E chứa tất cả các điểm tụ của nó (nghĩa là $E' \subset E$) thì E được gọi là {\color{red}tập đóng}.\\
+
+- Ta có nhận xét:
+\begin{itemize}
+\item[$\nabla$]{Bao đóng $\bar E$ của tập hợp bất kì E bao giờ cũng là tập đóng.}
+\item[$\nabla$]{Để một tập E là đóng, cần và đủ là tập E chứa tất cả các điểm dính của nó.}
+\item[$\nabla$]{Để một tập E là đóng, cần và đủ là với mọi là với mọi dãy $(x_n)_n$ các phần tử của E mà $x_n$ hội tụ đến $x$ thì $x$ phải thuộc E.}
+\item[$\nabla$]{Nếu tập E được chứa trong tập dẫn xuất của nó ($E \subset E'$) thì tập E không chứa điểm cô lập.}
+\end{itemize}
+
+- Một số tính chất:
+\begin{enumerate}
+\item{Hợp một số hữu hạn các tập đóng là một tập đóng.}
+\item{Giao một số tùy ý các tập đóng là tập đóng.}
+\item{Hợp vô hạn các tập đóng không nhất thiết phải là một tập đóng.}
+\end{enumerate}
+}
+
+\item{\textbf{ĐIỂM TRONG}: Điểm $a\in E$ được gọi là {\color{red}điểm trong} của tập hợp E nếu E là một lân cận của điểm a.}
+\item{TẬP MỞ: Một tập hợp mà mọi điểm của nó đều là điểm trong, được gọi là tập mở.}\\
+
+- Tập rỗng trong bất kì không gian nào cũng là tập mở, ngoài ra toàn bộ không gian cũng là một {\color{red}tập mở}.\\
+
+- Các tính chất của tập mở:
+\begin{enumerate}
+\item{Giao một số hữu hạn các tập mở là một tập mở.}
+\item{Hợp một họ tùy ý các tập mở là một tập mở.}
+\end{enumerate}\\
+- Giữa các tập mở và tập đóng có các liên hệ sau:
+\begin{enumerate}
+\item{Phần bù của một tập mở bất kì, là một tập đóng.}
+\item{Phần bù của một tập đóng bất kì, là một tập mở.}
+\end{enumerate}
+}
+
+\item{\textbf{PHẦN TRONG CỦA MỘT TẬP HỢP}: Cho A là một tập hợp tùy ý. Tập hợp tất cả các điểm trong của nó, được gọi là {\color{red}phần trong của tập A}( và được kí hiệu là $intA$)}
+\item{\textbf{KHOẢNG CÁCH TỪ MỘT ĐIỂM ĐẾN MỘT TẬP HỢP}: Khoảng cách từ điểm x đến tập hợp A, kí hiệu $d(x,A)$, là {\color{red}cận dưới lớn nhấ}t của tập hợp các số $d(x,y)$ khi y chạy khắp tập hợp A:
+\begin{align*}
+d(x,A) = \inf_{y \in A} \ d(x,y) 
+\end{align*}
+- Nếu các tập A và B có ít nhất một điểm chung thì $d(A,B) = 0$. Nhưng điều ngược lại không đúng, có thể xảy ra $d(A,B) = 0$ mặc dù $A\bigcapB = \phi$.}
+
+\item{\textbf{ĐƯỜNG KÍNH CỦA MỘT TẬP HỢP}: Đường kính của một tập hợp khác rỗng tùy ý E, kí hiệu $\delta (E)$, là {\color{red}cận trên nhỏ nhất} của các khoảng cách giữa các điểm $X\inE$ và $y\in E$:
+\begin{align*}
+\delta(E) = \sup \lbrace d(x,y) : x \in E, y\in E \rbrace.
+\end{align*}
+- Một tập hợp bị chặn trong không gian metric $X$ là một tập hợp khác rỗng, có đường kính hữu hạn.}
+
+\item{\textbf{TẬP HỢP TRÙ MẬT VÀ TẬP HỢP KHÔNG ĐÂU TRÙ MẬT}: Tập hợp E được gọi là {\color{red}trù mật trên tập hợp A} nếu như bao đóng của tập hợp E chứa tập A (nghĩa là $\bar{E} \supset A$). Trường hợp đạc biệt, nếu tập hợp E trù mật trong không gian X thì E được gọi là "{\color{red}trù mật khắp nơi}" trong X.
+
+- Không gian metric X gọi là {\color{red}khả li}, nếu trong X tồn tại một tập hợp không quá đếm được và trù mật khắp nơi.
+
+- Đường thẳng thực $\mathds{R}$ là {\color{red}khả li}.
+
+- Một tập hợp E được gọi là tập hợp không đâu trù mật nếu bất kì một tập mở nào cũng phải chứa một hình cầu mở không chứa một điểm nào của tập hợp E.}
+\end{itemize}
+\newpage
+
+\section{Không gian con}
+
+\hspace{0.7cm- }Giả sử E là một tập con khác rỗng của không gian metric $(X,d)$. Thu hẹp lên $E \times E$ của ánh xạ $(x,y) \mapsto d(x,y)$ dĩ nhiên là một khoảng cách trong E, và được gọi là {\color{red}khoảng cách cảm sinh} trong E bởi khoảng cách $d$ của không gian $X$. Không gian metric xác định bởi khoảng cách cảm sinh ấy, được gọi là không gian con của không gian metric X.\\
+
+- Để tập hợp $B \subset E $ là mở trong không gian con E điều kiện cần và đủ là tồn tại một tập hợp A mở trong X, sao cho $B = A\cap E$.\\
+
+
+- Để tập hợp $B \subset E $ là đóng trong không gian con E điều kiện cần và đủ là tồn tại một tập hợp A đóng trong X, sao cho $B = A\cap E$.\\
+
+- Để mọi tập hợp con $B \subset E $, mở(đóng) trong E, là mở(đóng) X điều kiện cần và đủ là $E$ đóng trong $X$.
+
+\section{Không gian Metric đầy đủ}
+%\begin{description}
+    %\item[
+    \hspace{0.7cm}\textbf{DÃY CƠ BẢN} Dãy $(x_n)_n$ trong không gian metric X được gọi là {\color{red}dãy cơ bản} nếu với mọi số $\epsilon$ > 0 ,  $\exists$ N(phụ thuộc  $\epsilon$) sao cho với mọi chỉ số $m,n \geqslant N$ kéo theo bất đẳng thức:
+    \begin{equation*}
+    d(x_n, x_m) < \epsilon
+    \end{equation*}
+    
+    - Mọi dãy hội tụ đều là {\color{red}dãy cơ bản}.\\
+    
+    - Nếu một dãy cơ bản có một dãy con hội tụ thì dãy đó hội tụ.\\
+    
+    %\item[
+    \hspace{0.0cm}\textbf{KHÔNG GIAN METRIC ĐẦY ĐỦ} Không gian metric $X$ được gọi là {\color{red}không gian metric đầy đủ} nếu một dãy cơ bản của không gian $X$ đều họi tụ đến một phần tử nào đó của không gian này.\\
+    
+    - Không gian {\color{red}Euclide $\mathds{R}^{n}$} là {\color{red}không gian đầy đủ}.\\
+    
+    - Không gian {\color{red}$C_{[a,b]}$} là {\color{red}không gian đầy đủ}. \\
+    \item[ĐỊNH LÍ BAIRE VỀ PHẠM TRÙ] Một tập $A$ trong không gian metric $X$ được gọi là thuộc {\color{red}phạm trù thứ nhất}, nếu $A$ có thể biểu diễn thành hợp của một số đếm được những tập hợp không đâu trù mật.\\
+    
+    - Một tập hơp không thuộc phạm trù thứ nhất được gọi là thuộc {\color{red} phạm trù thứ hai}.\\
+    
+    \item[$\Longrightarrow$ĐỊNH LÍ BAIRE]- Nếu $X$ là không gian metric đầy đủ, thì $X$ thuộc phạm trù thứ hai.
+%\end{description}
+
+\section{Ánh xạ liên tục} 
+{\renewcommand{\labelitemi}{$\blacksquare$}
+\renewcommand\labelitemii{$\nabla$}
+\renewcommand\labelitemiii{$\square$}
+
+\begin{itemize}
+  \item {\textbf{Ánh xạ liên tục:}}
+  Cho 2 không gian metric $(X, d_X)$ và $(Y, d_Y)$. Nếu không có gì gây nhầm lẫn, ta kí hiệu cả hai khoảng cách $d_X$ và $d_Y$ bởi cùng một chữ d. Giả sử $f$ là một ánh xạ từ $X$ và $Y$ và $x_0$ là một điểm của $X$.
+  \begin{itemize}
+  \item Ánh xạ $f$ được gọi là {\color{red}liên tục} tại điểm $x_0$, nếu với mọi số $\epsilon$ > 0 cho trước tồn tại số $\delta$ > 0 sao cho:
+      \begin{equation}
+  d_Y (f(x), f(y)) < \epsilon
+      \end{equation*}
+  với mọi $x \in X$ mà $d_X (x, x_0) < \delta$.
+          \end{itemize*}\\
+  - Ánh xạ $f$ được gọi là {{\color{red}liên tục} trên tập con $A \subset X$ nếu $f$ {\color{red}liên tục} mọi điểm $x \in A$.\\
+  
+  - Đối với mỗi ánh xạ $f$ từ không gian metric $X$ vào không gian metric $Y$, các mệnh đề sau đây là tương đương:
+          \begin{itemize}
+  \item $f$ liên tục trên $X$.
+  \item Với mọi tập đóng $F \subset Y$, nghịch ảnh $f^{-1} (F)$ là một tập đóng trong $X$.
+  \item Với mọi tập mở $G \subset Y$, nghịch ảnh $f^{-1} (G)$ là một tập mở trong $X$.
+  \item Với mọi tập $A \subset X, f(\bar{A}) \subset \bar{f(A)}$.
+  \end{itemize}
+  
+  \item {\textbf{ÁNH XẠ LIÊN TỤC ĐỀU:}}
+  Ánh xạ $f$ từ $X$ vào $Y$ được gọi là {\color{red}liên tục đều} nếu với mọi $\epsilon > 0$ đều tồn tại $\delta > 0$ sao cho từ bất đẳng thức $d(x,y) < \delta$ suy ra $d(f(x), f(y)0 < \epsilon $.
+  \item {\textbf{PHÉP ĐỒNG PHÔI:}}
+  Cho hai không gian metric $X$ và $Y$. Một song ánh : $X \rightarrow Y$ sao cho $f$ và $f^{-1}$  đều là các ánh xạ liên tục được gọi là một {\color{red}phép đồng phôi} từ $X$ lên $Y$. Hai không gian metric được gọi là {\color{red}đồng phôi} với nhau nếu có một phép đồng phôi từ không gian này lên không gian kia.
+  \item {\textbf{PHÉP ĐẲNG CỰ:}}
+  Một song ánh $f$ từ không gian metric  $X$lên không gian metric $Y$ được gọi là {\color{red}một phép đẳng cự} nếu với mọi $x,y \in X$ ta có:
+  \begin{equation*}
+  d(f(x), f(y)) = d(x,y).
+  \end{equation*}
+  Khi đó ta nói $X$ và $Y$ là {\color{red}hai không gian đẳng cự} với nhau.
+  \item {\textbf{METRIC TƯƠNG ĐƯƠNG:}}
+  Cho hai không gian metric $X_1 = (X, d_1)$ và $X_2 = (X, d_2)$. Hai metric $d_1$ và $d_2$ được gọi là {\color{red}tương đương tôpô} nếu ánh xạ đồng nhất:
+  \begin{align*}
+  id : X_1 \rightarrow X_2 \\
+  x &\mapsto x
+  \end{align*}
+  là một phép đồng phôi từ không gian metric $X_1$ lên không gian metric $X_2$.
+  \item {\textbf{METRIC TƯƠNG ĐƯƠNG ĐÔNG ĐỀU:}}
+  Nếu $d_1$ và $d_2$ là hai khoảng cách sao cho ánh xạ đồng nhất của $X_1$ lên $X_2$ và ánh xạ ngược của nó đều là liên tục đều, thì $d_1$ và $d_2$ gọi là tương đương đồng đều. Khi đó các dãy $Cauchy$ đối với khoảng cách này hay khoảng cách khác kia đều trùng nhau.
+  
+  Nếu tồn tại các số dương $m$, $M$ sao cho:
+  \begin{equation*}
+  md_1(x,y) \leqslant d_2(x,y) \leqslant Md_1(x.y)
+  \end{equation*}
+  với mọi $x,y \in X$ thì hai metric $d_1$ và $d_2$ là {\color{red}tương đương đồng đều}.
+  \item {\textbf{NGUYÊN LÍ ÁNH XẠ CO:}}
+  Ánh xạ $f$ từ không gian metric $X$ vào không gian metric $Y$ được gọi là ánh xạ co, nếu tồn tại một sô $\alpha$ với $0\leqslant \alpha <1$ sao cho với mọi $x, y \in X$ ta đều có:
+  \begin{equation*}
+  d(f(x), f(y)) \leqslant \alpha d(x,y)
+  \end{equation*}\\
+  %\item[$\Longrightarrow$ Nguyên lí ánh xạ co]\\
+  $\Longrightarrow$ Nguyên lí ánh xạ co:
+  Giả sử $X$ là một không gian metric đầy đủ và:
+  \begin{equation*}
+  f : X \rightarrow X
+  \end{equation*}
+  là {\color{red}một ánh xạ co} của $X$ vào chính nó. Khi đó $f$ có {\color{red}một điểm bất động duy nhất} , tức là tồn tại một và chỉ một điểm $x \in X$ sao cho $f(x) = x$.\\
+  \item {\textbf{GIỚI HẠN:}}
+  Giả sử $X$ là một không gian metric, $A$ là một tập hợp con của không gian ấy, $a$ là một điểm dính của tập hợp $A$ và $f$ là một ánh xạ của tập hợp $A$ vào không gian metric $Y$. Trước hết ta hãy giả thiết rằng $a$ không thuộc $A$. Ta nói rằng $f(x)$ có giới hạn $l \in Y$ khi $x \in A$ dần đến $a$ (hoặc $l$ là {\color{red}giới hạn} của ánh xạ $f$ tại điểm $a \in \bar{A}$ theo tập hợp $A$) nếu ánh xạ g của không gian con $A\cup\lbrace s \rbrace $ vào $Y$ xác định bởi điều kiện: $g(x)$ = $f(x)$ khi $x\in A$ và $g(a)$ = $l$ là liên tục tại điểm a. Khi đó ta viết:
+  \begin{equation*}
+  l = \lim_{x\rightarrow a, x \in A\setminus{a} \ f(x).
+  \end{equation*}
+  - Để điểm $l \in Y$ là giới hạn của ánh xạ $f(x)$ khi $x \in A$ dần đến $a$, điều kiện cần và đủ là với mọi $\epsilon > 0$ đều tồn tại $\delta > 0$ sao cho từ $x\in A$ và $0 < d(x,a) < \delta$ suy ra bất đẳng thức $d(f(x), l) < \epsilon$.\\
+  
+  - Để điểm $l \in Y$ là giới hạn của ánh xạ $f(x)$khi $x\in A$ dần đến $a$, điều kiện cần và đủ là với mọi dãy $(x_n)_n$ những điểm tạp hợp $A\setminus {a}$ hội tụ đến $a$, dãy $(f(x_n))_n$ phải họi tụ đến $l$.
+\end{itemize}
+}
+\section{Không gian COMPACT và tập hợp COMPACT}
+
+{\renewcommand{\labelitemi}{$\blacksquare$}
+\renewcommand\labelitemii{$\nabla$}
+\renewcommand\labelitemiii{$\square$}
+\begin{itemize}
+  \item \textbf{KHÔNG GIAN COM-PACT}\\
+  \begin{itemize}
+  \item Không gian metric $X$ gọi là {\color{red}compact} nếu nó thỏa mãn điều kiện sau đây (tiên đề Borel-Lebesgue): với mọi phủ $(U_{\lambda})_{\lambda \in L} $ của không gian $X$ gồm những tập mở (phủ mở), đều tổn tại một họ con hữu hạn $(U_{\lambda})_{\lambda \in H} $ ($H \subset L$ và hữu hạn), cùng là một phủ của không gian $X$.\\
+  
+  \item Không gian metric $X$ gọi là {\color{red}tiền compact} hay hoàn toàn bị chặn nếu với mọi $\epsilon > 0$ đều tồn tại một phủ hữu hạn của không gian $X$ gồm những tập hợp có đường kính $\leqslant \epsilon$.\\
+  
+  \item Đối với một không gian metric $X$ , ba điều kiện sau đây là tương đương: \\
+  \begin{itemize}
+  \item $X$ com-pact.
+  \item Mọi dãy vô hạn trong $X$ đều có ít nhất một điểm giới hạn.
+  \item $X$ đầy đủ và hoàn toàn bị chặn (hay tiền com-pact).\\
+  \end{itemize} 
+  \end{itemize}
+  \pagebreak
+  \item \textbf{TẬP HỢP COM-PACT}\\
+  
+  {\color{red}- Một tập hợp compact} (tương ứng {\color{red}tiền compact} hay {\color{red}hoàn toàn bị chặn}) trong không gian metric $X$, là một tập hợp $A$ sao cho không gian con $A$ của không gian $X$ là {\color{red}compact} (tương ứng {\color{red}tiền compact} hay {\color{red}hoàn toàn bị chặn}).\\
+  \begin{itemize}
+  \item Mọi tập hợp tiền compact(hoàn toàn bị chặn) đều là bị chặn.\\
+  \item Trong không gian metric, mọi tập hợp compact đều là đóng và hoàn toàn bị chặn.\\
+  \item Trong không gian metric compact $X$, mọi tập đóng đều là compact.\\
+  \item Trong không gian metric đầy đủ, mọi tập hợp đóng và hoàn toàn bị chặn đều là tập compact.\\
+  \end{itemize}
+  \item\textbf{ÁNH XẠ LIÊN TỤC TRÊN TẬP COM-PACT}\\
+  \begin{itemize}    
+  \item Giả sử $f$ là một ánh xạ liên tục của không gian metric $X$ vào không gian metric $Y$. Ảnh $f(A)$ của mọi tập hợp compact $A \subset X$ là compact trong $Y$.\\
+  \item Giả sử $A$ là tập compact trong không gian metric $X$ và $f$ là một ánh xạ liên tục của $X$ vào $\mathds{R}$. Khi đó $f(A)$ là bị chặn, và trong $A$ tồn tại 2 điểm $a$ và $b$ sao cho:\\
+  \begin{equation*}
+  f(a) = \inf_{x\in A} \ f(x) & f(b) = \sup_{x\in A} \ f(x).
+  \end{equation*}
+  \end{itemize}\\
+  \item \textbf{TẬP HỢP COM-PACT TƯƠNG ĐỐI}\\
+  
+  \begin{itemize}
+  \item Một tập hợp {\color{red}compact tương đối} trong không gian metric $X$ là một tập hợp $A\subsetX$ có bao đóng $\bar{A}$ compact.
+  \end{itemize}
+  \item \textbf{KHÔNG GIAN COM-PACT ĐỊA PHƯƠNG}\\
+  
+  \begin{itemize}
+  \item Không gian metric $X$ gọi là {\color{red}compact địa phương} nếu mọi điểm $x \in X$ đều có một lân cận compact trong $X$.
+  \end{itemize}
+\end{itemize}
+}
+\section{Không gian liên thông và tập hợp liên thông:}
+\hspace{0.7cm}\textbf{KHÔNG GIAN LIÊN THÔNG:} Không gian metric $X$ được gọi là {\color{red}liên thông}, nếu trong $X$ chỉ có hai tập $\emptyset$ và $X$ là vừa mở, vừa đóng. Một cách phát biểu tương đương: $X$ là không gian liên thông, nếu không tồn tại hai tập mở khác rỗng  A và B sao cho $A\cupB = X$ và $A\capB = \emptyset$. \\
+%ko cách 2 dòng từ "không gian metric vì sẽ tự động xuống dòng và thụt vào 1 ô.
+\begin{itemize}
+\item Không gian metric $X$ là {\color{red}liên thông địa phương} nếu tại mọi điểm $x \in X$, đều tồn tại một hệ cơ sở nhưng lân cận liên thông.
+\end{itemize}\\
+\pagebreak
+\hspace{0.7cm}\textbf{TẬP HỢP LIÊN THÔNG:} Một tập hợp $E$ trong không gian metric $X$ là liên thông, nếu không gian con $E$ của không gian $X$ là liên thông.\\
+\begin{itemize}
+\item Nếu $A$ là một tập hợp liên thông trong không gian metric $X$, thì mọi tập hợp $B$, $A \subset B \subset \bar{A}$, đều liên thông.\\
+\item Nếu $(A_{\lambda})_{\lambda \in L} $ là một họ những tập hợp liên thông trong không gian metric $X$, có giao khác rỗng thì $A = \cup_{\lambda \in L} A_{\lambda} $ là liên thông.\\
+\item Nếu $(A_i)_{i = \bar{1,n}}$ là một dãy những tập hợp liên thông, với tính chất $A_i \cap A_{i+1} \neq \emptyset$ khi $1 \leqslant i \leqslant n-1$, thì $A = \cup{^n}_{i = 1} A_i$ là liên thông.\\
+\item Ta gọi hợp $C(x)$ của tất cả các tập hợp liên thông của không gian metric $X$, chứa điểm $x \in X$, là {\color{red}thành phần liên thông} của điểm $x$ trong $X$.\\
+\item Với mọi tập $A \subset X$, các thành phần liên thông của các điểm của không gian con $A$ được gọi là {\color{red}các thành phần liên thông} của $A$.Nếu mọi thành phần liên thông của tập hợp $A$ đều chỉ gồm có 1 điểm, thì $A$A gọi là {\color{red}hoàn toàn không liên thông}.\\
+\item Để không gian metric $X$ là liên thông địa phương, điều kiện cần và đủ là các thành phần liên thông của các tập hợp mở của không gian $X$ là mở.\\
+\item Giả sử $f$ là một ánh xạ liên tục của $X$ vào $Y$. Ảnh $f(A)$ của mọi tập hợp liên thông $A \subset X$ đều là liên thông.
+\end{itemize}
+%\end{description}
+
+\section{Tích của hai không gian Metric}
+\begin{itemize}
+\item Giả sử $X_1$ và $X_2$ là hai không gian metric. $d_1$ và $d_2$ là các khoảng cách trong $X_1$ và $X_2$. Với mọi cặp điểm $x = (x_1, x_2)$ và $y = (y_1, y_2)$ của tích $ X = X_1 \times X_2$, ta đặt:\\
+\begin{equation*}
+d(x,y) = \max(d_1(x_1, y_1), d_2(x_2, y_2)).
+\end{equation*}
+\item Có thể kiểm tra rằng $d$ là một khoảng cách trong $X$. Không gian metric $(X,d)$ được gọi là {\color{red}tích} của các không gian $X_1$ và $X_2$.\\
+\item Các hình cầu mở (tương ứng, đóng) đối với các khoảng cách $d$, $d_1$, $d_2$ được kí hiệu lần lượt là $B$, $B_1$, $B_2$ (tương ứng $B'$, $B'_1$, $B'_2$) thay cho kí hiệu chung $B$ (tương ứng $B'$) mà chúng ta đã sử dụng từ trước cho đến nay.
+\end{itemize}
+ 
+\section{Bổ sung về đường thẳng thực $\mathds{R}$}\\
+
+%\begin{description}
+%\item
+\hspace{0.7cm}\textbf{TẬP HOÀN CHỈNH:} Một tập hợp đóng mà không có điểm cô lập gọi là một {\color{red}tập hợp hoàn chỉnh}.\\
+
+\pagebreak
+%\end{description}\\
+%\begin{description}
+%\item
+%ko được dùng hspace cho "tập hợp cantor" vì sẽ lùi dòng vào so với "tập hoàn chỉnh"
+\hspace{0.1cm}\textbf{TẬP HỢP CANTOR:} Trên đường thẳng thực bỏ đi hai khoảng $(-\infty, 0)$ và $(0, \infty)$, để còn lại đoạn $[0,1]$.Chia đoạn $[0,1]$ ra làm ba phân bằng nhau và bỏ đi khoảng giữa, tức là khoảng $(\frac{1}{3}, \frac{2}{3})$, còn lại tập hợp $D_1$ gồm hai đoạn. Lại chia mỗi đoạn này ra làm ba phần bằng nhau và bỏ đi khoảng giữa (tức là bỏ đi các khoảng $(\frac{7}{9}, \frac{8}{9})$ ), còn lại tập hợp $D_2$ gồm bốn đoạn và tiếp tục mãi như vậy. Tập hợp các điểm còn lại $D$, sau khi đã lấy đi tất cả các khoảng như đã chỉ ra, được gọi là {\color{red}tập hợp Cantor}.\\
+\begin{itemize}
+\item Các điểm của tập hợp này chia làm hai loại: các điểm loại một là đầu mút của các khoảng lấy đi(các điểm này là một tập đếm được) và các điểm loại hai (tất cả các điểm còn lại của tập hợp $D$).\\
+\item Tập hợp $D$ có cấu trúc số học sau đây: nó gồm và chỉ gồm các điểm thuộc đoạn $[0,1]$ được viết dưới dạng phân số tam phân không chứa đơn vị trong các chữ số tâm phân của chúng.\\
+\end{itemize}
+%\end{description}
+\begin{center}
+\bfseries 
+{---HẾT--}
+\end{center}
+
+\end{document}    %kết thúc tài liệu

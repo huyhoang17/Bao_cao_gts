@@ -1,0 +1,2 @@
+Gia tri vong lap cuoi cung la
+x1 = 1.90919828    x2 = 3.19496441    x3 = 5.04480743    

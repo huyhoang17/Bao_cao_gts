@@ -1,0 +1,9 @@
+Ðe 5
+
+------Huong dan-------
+Truoc khi chay ban can nhap du lieu Input:
+1.Nhap ma tran   vuong   A-ve trai (hay he so ve trai cua hpt) vao input_A.txt.
+2.Nhap ma tran B - ve phai (hay he so ve phai cua he pt) vao input_B.txt
+3.Nhap gia tri ban dau cua x vao input_x0.txt
+4.Ket qua vong lap cuoi cung se duoc luu tai output.txt
+		@@
